@@ -4,7 +4,7 @@ package CodingInterview.Chp4;
  * Created by Yang on 2017/3/27.
  */
 public class TreeNode {
-    int val;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
@@ -14,6 +14,12 @@ public class TreeNode {
         this.right = null;
     }
 
+
+    //根据完全层次遍历重建二叉树
+//    public TreeNode(char[] a){
+//        this.val = Integer.parseInt(""+a[0]);
+//
+//    }
 
     //中序遍历这棵树
     public void printTree(){

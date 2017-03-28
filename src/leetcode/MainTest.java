@@ -2,6 +2,8 @@ package leetcode;
 
 import CodingInterview.Chp4.TreeNode;
 
+import java.util.List;
+
 public class MainTest{
 
     public static void main(String[] args) {
@@ -23,16 +25,17 @@ public class MainTest{
         //树测试部分
 
         TreeNode root = new TreeNode(8);
-        root.left = new TreeNode(6);
+        //root.left = new TreeNode(6);
         root.right = new TreeNode(10);
-        root.left.left = new TreeNode(2);
-        root.left.right = new TreeNode(7);
+        //root.left.left = new TreeNode(2);
+        //root.left.right = new TreeNode(7);
         root.right.left = new TreeNode(9);
-        root.right.right = new TreeNode(12);
+        //root.right.right = new TreeNode(12);
         //root.right.left.left = new TreeNode(22);
         root.printTree();
+        System.out.println();
 
-        TreeNode reroot = _226_.invertTree(root);
-        reroot.printTree();
+        System.out.println(_111_.minDepth(root));
+
     }
 }
