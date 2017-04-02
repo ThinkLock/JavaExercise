@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * Created by Yang on 2017/4/1.  进制转换
+ * Created by Yang on 2017/4/1.  进制的转换
  */
 public class MainQuna2 {
 

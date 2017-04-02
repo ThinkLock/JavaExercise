@@ -12,7 +12,7 @@
 - 453 **Flatten Binary Tree to Linked List** --->114
 
 
-#### 位操作部分
+#### 位操作部分1
 
 - 1 **A+b Problem** --->371
 - 142 **O(1) Check Power of 2**--->231
