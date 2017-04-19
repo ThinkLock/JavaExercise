@@ -35,10 +35,10 @@ public class MainTest{
             //root.right.left.left = new TreeNode(22);
             root.printTree();
             System.out.println();
-            List<List<Integer>> res = _103_.zigzagLevelOrder(root);
-            for(List<Integer> s : res){
+            List<Integer> res = _145_.postorderTraversal(root);
+            for(Integer s : res){
 
-                System.out.println(s.toString());
+                System.out.println(s);
             }
         }
 
