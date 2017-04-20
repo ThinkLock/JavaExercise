@@ -217,7 +217,7 @@ public class Main {
                 }
 
                 sensordata.setEnableOthersSensor(EnableOthersSensor);
-                sensordata.setEnableTSandGPS(EnableTSandGPS);
+                sensordata.setEnableTS(EnableTSandGPS);
 
                 try {
                     FileOutputStream fout = new FileOutputStream("sensors_littleend.txt",true);

@@ -81,8 +81,11 @@ public class SensorData {
     //标记是否将其他传感器信息放入返回的bytebuffer
     private Boolean EnableOthersSensor;
 
-    //标记是否将时间戳和GPS信息返回bytebuffer
-    private Boolean EnableTSandGPS;
+    //标记是否将时间戳返回bytebuffer
+    private Boolean EnableTS;
+
+    //标记是否将GPS信息返回bytebuffer
+    private Boolean EnableGPS;
 
     public SensorData(){}
 
@@ -90,18 +93,24 @@ public class SensorData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[info_type=").append(info_type).append("]");
-        sb.append("[timestamp=").append(timestamp).append("]");
+        if(EnableTS) {
+            sb.append("[timestamp=").append(timestamp).append("]");
+        }
         sb.append("[acceleration=").append(acceleration==null?"null":acceleration.toString()).append("]");
         sb.append("[gyroscope=").append(gyroscope==null?"null":gyroscope.toString()).append("]");
         sb.append("[gyro_dt=").append(gyro_dt).append("]");
         sb.append("[magnetic=").append(magnetic==null?"null":magnetic.toString()).append("]");
-        sb.append("[pressure=").append(pressure).append("]");
-        sb.append("[light=").append(light).append("]");
-        sb.append("[temperature=").append(temperature).append("]");
-        sb.append("[distance=").append(distance).append("]");
-        sb.append("[gravity=").append(gravity==null?"null":gravity.toString()).append("]");
-        sb.append("[rotation_vector=").append(rotation_vector==null?"null":rotation_vector.toString()).append("]");
-        sb.append("[gps=").append(gps==null?"null":gps.toString()).append("]");
+        if(EnableOthersSensor) {
+            sb.append("[pressure=").append(pressure).append("]");
+            sb.append("[light=").append(light).append("]");
+            sb.append("[temperature=").append(temperature).append("]");
+            sb.append("[distance=").append(distance).append("]");
+            sb.append("[gravity=").append(gravity == null ? "null" : gravity.toString()).append("]");
+            sb.append("[rotation_vector=").append(rotation_vector == null ? "null" : rotation_vector.toString()).append("]");
+        }
+        if(EnableGPS) {
+            sb.append("[gps=").append(gps == null ? "null" : gps.toString()).append("]");
+        }
         return sb.toString();
     }
 
@@ -109,7 +118,7 @@ public class SensorData {
         ByteBuffer buf = ByteBuffer.allocate(1024);
         buf.order(ByteOrder.LITTLE_ENDIAN);
         buf.put(info_type);
-        if(EnableTSandGPS){
+        if(EnableTS){
             buf.putLong(timestamp);
         }
         buf.put(acceleration.getBytes());
@@ -125,7 +134,7 @@ public class SensorData {
             buf.put(gravity.getBytes());
             buf.put(rotation_vector.getBytes());
         }
-        if(EnableTSandGPS){
+        if(EnableGPS){
             buf.put(gps.getBytes());
         }
 
@@ -494,11 +503,19 @@ public class SensorData {
         EnableOthersSensor = enableOthersSensor;
     }
 
-    public Boolean getEnableTSandGPS() {
-        return EnableTSandGPS;
+    public Boolean getEnableTS() {
+        return EnableTS;
     }
 
-    public void setEnableTSandGPS(Boolean enableTSandGPS) {
-        EnableTSandGPS = enableTSandGPS;
+    public void setEnableTS(Boolean enableTS) {
+        EnableTS = enableTS;
+    }
+
+    public Boolean getEnableGPS() {
+        return EnableGPS;
+    }
+
+    public void setEnableGPS(Boolean enableGPS) {
+        EnableGPS = enableGPS;
     }
 }
