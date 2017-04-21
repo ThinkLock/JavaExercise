@@ -52,7 +52,15 @@ public class SensorDesc{
     private  Float min_delay;  //最小刷新时间间隔
 
 
-    public SensorDesc(){}
+
+    public SensorDesc(){
+        version = 0;
+        type = 0;
+        max_range = 0f;
+        resolution = 0f;
+        power = 0f;
+        min_delay = 0f;
+    }
 
     public StringBuffer getName() {
         return name;
@@ -148,9 +156,15 @@ public class SensorDesc{
         return buf;
     }
 
+
     public static class StringBuffer{
         private String content;
         private short size;
+
+        public StringBuffer(){
+            content = "";
+            size = 0;
+        }
 
         public String getContent() {
             return content;
