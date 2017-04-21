@@ -1,6 +1,7 @@
 package DiDiTest;
 
 
+import javax.annotation.processing.SupportedSourceVersion;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -82,6 +83,8 @@ public class ConvertTest {
             e.printStackTrace();
         }
     }
+
+
 
     /**
      * 转换字节数组中的数据为sensordata字符串格式
@@ -196,6 +199,33 @@ public class ConvertTest {
         sensordata.setEnableTS(hasTSInfo);
         sensordata.setEnableGPS(hasGPSInfo);
 
+        //获取加速度信息
+        float acc_x =  (float)(sensordata.getAcceleration().getX_axis()*50)/32767;
+        float acc_y =  (float)(sensordata.getAcceleration().getY_axis()*50)/32767;
+        float acc_z =  (float) (sensordata.getAcceleration().getZ_axis()*50)/32767;
+
+        //获取角速度信息
+        float gyro_x =  (float)(sensordata.getGyroscope().getX_axis()*50)/32767;
+        float gyro_y =  (float)(sensordata.getGyroscope().getY_axis()*50)/32767;
+        float gyro_z =  (float)(sensordata.getGyroscope().getZ_axis()*50)/32767;
+
+        //获取磁力计信息
+        float magn_x =  (float)(sensordata.getMagnetic().getX_axis()*100)/32767;
+        float magn_y =  (float)(sensordata.getMagnetic().getY_axis()*100)/32767;
+        float magn_z =  (float)(sensordata.getMagnetic().getZ_axis()*100)/32767;
+
+        StringBuilder sb_acc = new StringBuilder();
+        sb_acc.append(acc_x).append(",").append(acc_y).append(",").append(acc_z);
+        StringBuilder sb_gyro = new StringBuilder();
+        sb_gyro.append(gyro_x).append(",").append(gyro_y).append(",").append(gyro_z);
+        StringBuilder sb_magn = new StringBuilder();
+        sb_magn.append(magn_x).append(",").append(magn_y).append(",").append(magn_z);
+
+        System.out.println(String.format("%.2f",acc_z) + " " +sb_acc.toString() + " " + sb_gyro.toString()+ " " + sb_magn.toString());
+
+        //writeToFile(sb_acc.toString(),"acceleration.txt");
+        //writeToFile(sb_gyro.toString(),"gyroscope.txt");
+        //writeToFile(sb_magn.toString(),"magnetic.txt");
         return sensordata.toString();
     }
 
