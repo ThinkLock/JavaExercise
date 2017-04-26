@@ -42,11 +42,11 @@ public class _18_ {
 
         }
 
-        return a.substring(start,maxlen);
+        return a.substring(start,start+ maxlen);
     }
 
     public static void main(String[] args){
-        String s = "ascabach";
+        String s = "dcabacc";
         System.out.print(getMaxSubString(s));
     }
 }
