@@ -18,7 +18,7 @@ public class CompressTest {
 
     public static void main(String[] args){
         try {
-            FileInputStream fis = new FileInputStream("C:\\Users\\fengzhaoyang_i\\Desktop\\trace_data\\2017-5-4\\trace_sensor_get_on_bin.txt");
+            FileInputStream fis = new FileInputStream("C:\\Users\\fengzhaoyang_i\\Desktop\\trace_data\\2017-5-5\\trace_sensor_get_on_bin.txt");
             FileChannel fc = fis.getChannel();
             ByteBuffer buffer = ByteBuffer.allocate(fis.available());
             buffer.order(ByteOrder.LITTLE_ENDIAN);
