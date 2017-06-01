@@ -1,62 +1,29 @@
 package TouTiao;
 
-import java.util.Stack;
-
 /**
- * 数组调整
- * Created by fengzhaoyang_i on 2017/6/1.
+ * 反转整数
+ * Created by Yang on 2017/5/24.
  */
 public class _30_ {
 
-    private  static void trans(int[] in){
-        if(in==null || in.length==0 || in.length==1) return;
+    public static int reverseInt(int num){
 
-        int low = 0;
-        int high = in.length-1;
-
-        while (low<high){
-            while (low<high && in[high]%2==0) high--;
-            while (low<high && in[low]%2==1) low++;
-            if(low!=high){
-                int temp = in[high];
-                in[high] = in[low];
-                in[low] = temp;
+        long res = 0L;
+        int temp = Math.abs(num);
+        while (temp>0){
+            res *= 10;
+            res += temp%10;
+            if(res>Integer.MAX_VALUE){
+                return 0;
             }
+            temp = temp/10;
         }
 
-
-    }
-
-
-    public static void mytrans(int[] in){
-        if(in==null || in.length==0 || in.length==1) return;
-        Stack<Integer> stack = new Stack<>();
-
-        int index = 0;
-
-        for(int i=0;i<in.length;i++){
-            if(in[i]%2==1){
-                in[index++] = in[i];
-            }else {
-                stack.push(in[i]);
-            }
-        }
-
-        int j = in.length-1;
-        while (!stack.isEmpty()){
-            in[j--] = stack.pop();
-        }
+        return num>=0?(int)res:(int)(-res);
     }
 
     public static void main(String[] args){
-        int[] a = {1,2,3,4,5};
-//        trans(a);
-//        for (int item : a) {
-//            System.out.println(item);
-//        }
-        mytrans(a);
-        for (int item : a) {
-            System.out.println(item);
-        }
+        int  a = -8876454;
+        System.out.println(reverseInt(a));
     }
 }
