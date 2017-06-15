@@ -6,3 +6,4 @@
 79 | Word Search
 21 | Merge Two Sorted Lists
 202 | Happy Number
+118 | Pascal's Triangle
