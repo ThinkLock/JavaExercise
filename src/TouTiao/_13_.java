@@ -7,7 +7,7 @@ package TouTiao;
  */
 public class _13_ {
 
-    //类似于华为笔试第三题 /lintcode/MainHW3,采用动态规划的方法
+    //类似于华为笔试第三题 /campus/MainHW3,采用动态规划的方法
     public static int getMinWeight(int[][] a,int m,int n){
 
         int[][] dp = new int[m][n];

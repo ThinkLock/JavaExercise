@@ -1,4 +1,4 @@
-package lintcode;
+package campus;
 import java.util.Scanner;
 
 /**

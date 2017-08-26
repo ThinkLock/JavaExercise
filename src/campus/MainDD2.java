@@ -1,6 +1,4 @@
-package lintcode;
-
-import com.sun.org.apache.xerces.internal.impl.xs.SchemaNamespaceSupport;
+package campus;
 
 import java.util.Scanner;
 

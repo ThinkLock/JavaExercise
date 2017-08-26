@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class _16_ {
 
-    //lintcode 57 三个数之和等于0
+    //campus 57 三个数之和等于0
     public static ArrayList<ArrayList<Integer>> threeSum(int[] numbers) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         ArrayList<Integer> item;

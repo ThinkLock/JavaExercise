@@ -1,4 +1,4 @@
-package lintcode;
+package campus;
 
 /**
  * Created by Yang on 2017/4/20.

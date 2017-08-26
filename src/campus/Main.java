@@ -1,7 +1,5 @@
-package lintcode;
+package campus;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**

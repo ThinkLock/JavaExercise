@@ -1,8 +1,7 @@
-package lintcode;
+package campus;
 
 
 import java.util.Scanner;
-import java.util.SplittableRandom;
 
 /**
  * Created by Yang on 2017/4/3.
